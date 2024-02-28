@@ -1,0 +1,9 @@
+.DS_*
+*.log
+*.sublime*
+**/*.back.*
+**/*.backup.*
+bower_components
+dist
+logs
+node_modules
