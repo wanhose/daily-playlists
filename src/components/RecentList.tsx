@@ -1,34 +1,52 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { getRecentSearches, RECENT_SEARCHES_KEY } from 'utils/storage';
+import { getRecentSongs, RECENT_SONGS_KEY } from 'utils/storage';
 
 export const RecentList = () => {
-  const [recentSearches, setRecentSearches] = useState<readonly string[]>(getRecentSearches());
-  const [searchParams] = useSearchParams();
+  const [recentSongs, setRecentSongs] = useState<readonly string[]>(getRecentSongs());
+  const [searchParams, setSearchParams] = useSearchParams();
   const queryValue = searchParams.get('q') || '';
+
+  const handleItemClick = useCallback(
+    (event: React.MouseEvent<HTMLDivElement>) => {
+      const { value } = event.currentTarget.dataset;
+
+      if (value) {
+        searchParams.set('q', value);
+        setSearchParams(searchParams);
+      }
+    },
+    [searchParams, setSearchParams]
+  );
 
   useEffect(() => {
     function handleStorage() {
-      setRecentSearches(getRecentSearches());
+      setRecentSongs(getRecentSongs());
     }
 
-    window.addEventListener(RECENT_SEARCHES_KEY, handleStorage);
+    window.addEventListener(RECENT_SONGS_KEY, handleStorage);
 
     return () => {
-      window.removeEventListener(RECENT_SEARCHES_KEY, handleStorage);
+      window.removeEventListener(RECENT_SONGS_KEY, handleStorage);
     };
   }, []);
 
   return (
-    <ul className={`mt-4 list-none text-lg ${queryValue ? 'hidden' : ''}`}>
-      {recentSearches.toReversed().map((item, index) => (
-        <li className="mb-2" key={index}>
+    <div className={`mt-4 list-none text-lg ${queryValue ? 'hidden' : ''}`}>
+      {recentSongs.toReversed().map((item, index) => (
+        <div
+          className="mb-2"
+          data-value={item}
+          key={index}
+          onClick={handleItemClick}
+          role="button"
+          tabIndex={0}>
           <span aria-label="Clock" className="pr-2" role="img">
             🕒
           </span>
           {item}
-        </li>
+        </div>
       ))}
-    </ul>
+    </div>
   );
 };
