@@ -8,7 +8,7 @@ export const SongList = () => {
   const queryValue = searchParams.get('q') || '';
   const songs = useSongs();
 
-  const onItemClick = useCallback((event: MouseEvent<HTMLAnchorElement>) => {
+  const handleItemClick = useCallback((event: MouseEvent<HTMLAnchorElement>) => {
     const prevRecentSearches = getRecentSongs();
     const { value } = event.currentTarget.dataset;
 
@@ -33,7 +33,7 @@ export const SongList = () => {
           data-value={song.name}
           href={song.href}
           key={song.id}
-          onClick={onItemClick}
+          onClick={handleItemClick}
           title={song.name}>
           <span aria-label="Musical Note" className="pr-2" role="img">
             🎵
