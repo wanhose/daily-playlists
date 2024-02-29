@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 const customRender = <
   Q extends Queries = typeof queries,
   Container extends Element | DocumentFragment = HTMLElement,
-  BaseElement extends Element | DocumentFragment = Container,
+  BaseElement extends Element | DocumentFragment = Container
 >(
   ui: React.ReactElement,
   options?: RenderOptions<Q, Container, BaseElement>
@@ -18,7 +18,7 @@ const customRender = <
         <div id="portal-root" />
       </>
     ),
-    ...options,
+    ...options
   });
 };
 
