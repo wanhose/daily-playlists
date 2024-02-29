@@ -19,9 +19,7 @@ export const App = () => {
     <>
       <Title />
       <Input />
-      <Suspense fallback={<Fallback text="Loading..." />}>
-        <RecentList />
-      </Suspense>
+      <RecentList />
       <Suspense fallback={<Fallback text="Loading..." />}>
         <SongList />
       </Suspense>
