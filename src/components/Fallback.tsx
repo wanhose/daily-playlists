@@ -1,9 +1,10 @@
 export const Fallback = (props: FallbackProps) => {
-  const { text } = props;
+  const { className, text } = props;
 
-  return <p className="text-lg">{text}</p>;
+  return <p className={`text-lg ${className}`}>{text}</p>;
 };
 
 export interface FallbackProps {
+  readonly className?: string;
   readonly text: string;
 }

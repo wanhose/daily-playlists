@@ -20,7 +20,7 @@ export const App = () => {
       <Title />
       <Input />
       <RecentList />
-      <Suspense fallback={<Fallback text="Loading..." />}>
+      <Suspense fallback={<Fallback className="mt-4" text="Loading..." />}>
         <SongList />
       </Suspense>
     </>
