@@ -1,7 +1,7 @@
 export const Title = () => (
-  <p className="text-center text-2xl">
+  <p className="text-center text-2xl text-spotify">
     Daily Playlists{' '}
-    <span aria-label="Musical Notes" role="img">
+    <span aria-label="Musical Notes" className="inline-block animate-shake" role="img">
       🎶
     </span>
   </p>

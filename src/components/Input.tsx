@@ -1,16 +1,16 @@
-import { ChangeEvent, useCallback } from 'react';
+import { KeyboardEvent, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 export const Input = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const searchValue = searchParams.get('s') || '';
+  const queryValue = searchParams.get('q') || '';
 
-  const handleChange = useCallback(
-    (event: ChangeEvent<HTMLInputElement>) => {
-      if (event.currentTarget.value) {
-        setSearchParams({ s: event.currentTarget.value });
+  const handleKeyDown = useCallback(
+    (event: KeyboardEvent<HTMLInputElement>) => {
+      if (event.currentTarget.value && event.key === 'Enter') {
+        setSearchParams({ q: event.currentTarget.value });
       } else {
-        searchParams.delete('s');
+        searchParams.delete('q');
         setSearchParams(searchParams);
       }
     },
@@ -21,10 +21,10 @@ export const Input = () => {
     <input
       className="mt-4 w-full rounded-md border border-gray-700 bg-black px-4 py-2 text-xl text-white focus:border-spotify focus:outline-none"
       data-testid="search-input"
-      onChange={handleChange}
-      placeholder="Search"
+      defaultValue={queryValue}
+      onKeyDown={handleKeyDown}
+      placeholder="Search and press Enter..."
       type="text"
-      value={searchValue}
     />
   );
 };

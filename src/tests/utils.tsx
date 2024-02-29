@@ -1,5 +1,8 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Queries, queries, render, RenderOptions } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
+
+const client = new QueryClient();
 
 const customRender = <
   Q extends Queries = typeof queries,
@@ -13,7 +16,9 @@ const customRender = <
     wrapper: ({ children }) => (
       <>
         <div id="root">
-          <BrowserRouter>{children}</BrowserRouter>
+          <QueryClientProvider client={client}>
+            <BrowserRouter>{children}</BrowserRouter>
+          </QueryClientProvider>
         </div>
         <div id="portal-root" />
       </>

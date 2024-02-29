@@ -32,13 +32,14 @@ beforeEach(() => {
 
 describe('Input', () => {
   it('must change search params', async () => {
-    await userEvent.type(screen.getByTestId('search-input'), 'Jest');
-    expect(value?.get('s')).toBe('Jest');
+    await userEvent.type(screen.getByTestId('search-input'), 'Vitest');
+    await userEvent.keyboard('{Enter}');
+    expect(value?.get('q')).toBe('Vitest');
   });
 
   it('must clear search params', async () => {
     await userEvent.type(screen.getByTestId('search-input'), 'Jest');
     await userEvent.clear(screen.getByTestId('search-input'));
-    expect(value?.get('s')).toBeNull();
+    expect(value?.get('q')).toBeNull();
   });
 });

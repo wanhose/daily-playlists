@@ -15,7 +15,7 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "ESNext",
-    "types": ["@testing-library/jest-dom"],
+    "types": ["@testing-library/jest-dom", "./src/import-meta.d.ts"],
     "useDefineForClassFields": true
   },
   "include": ["./src"]
