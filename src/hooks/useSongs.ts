@@ -8,14 +8,14 @@ import { fetchTracks } from 'utils/fetchTracks';
 export const useSongs = (): readonly Song[] | undefined => {
   const [searchParams] = useSearchParams();
   const queryValue = searchParams.get('q') || '';
-  const { data } = useSuspenseQuery<SearchResponse | undefined>({
+  const { data } = useSuspenseQuery<SearchResponse>({
     queryFn: () => fetchTracks(queryValue),
     queryKey: ['search', queryValue]
   });
-  const trackItems = data?.tracks?.items;
+  const trackItems = data.tracks.items;
 
   const songs: readonly Song[] | undefined = useMemo(
-    () => trackItems?.map((item) => ({ href: item.uri, id: item.id, name: item.name })),
+    () => trackItems.map((item) => ({ href: item.uri, id: item.id, name: item.name })),
     [trackItems]
   );
 
