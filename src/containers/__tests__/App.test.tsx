@@ -1,6 +1,6 @@
 import { render, screen } from 'tests/utils';
 
-import App from '../App';
+import { App } from '../App';
 
 beforeEach(() => {
   render(<App />);

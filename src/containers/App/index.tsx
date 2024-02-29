@@ -3,7 +3,7 @@ import { RecentList } from 'components/RecentList';
 import { SongList } from 'components/SongList';
 import { Title } from 'components/Title';
 
-const App = () => (
+export const App = () => (
   <>
     <Title />
     <Input />
@@ -11,5 +11,3 @@ const App = () => (
     <SongList />
   </>
 );
-
-export default App;
