@@ -7,7 +7,7 @@ beforeEach(() => {
 });
 
 describe('App', () => {
-  it('must contain word', () => {
-    expect(screen.getByText('App')).toBeInTheDocument();
+  it('must contain words', () => {
+    expect(screen.getByText('Daily Playlists')).toBeInTheDocument();
   });
 });
