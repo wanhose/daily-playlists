@@ -9,7 +9,7 @@ These instructions will get you a copy of the project up and running on your loc
 ### Prerequisites
 
 - Node.js
-- pnpm (preferred package manager)
+- yarn (preferred package manager)
 
 ### Installing
 
@@ -25,33 +25,33 @@ git clone https://github.com/wanhose/daily-playlists.git
 cd daily-playlists
 ```
 
-3. Install the dependencies using pnpm
+3. Install the dependencies using yarn
 
 ```bash
-pnpm install
+yarn install
 ```
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `pnpm dev`
+### `yarn dev`
 
 Runs the app in the development mode. Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
 
-### `pnpm build`
+### `yarn build`
 
 Builds the app for production to the `dist` folder. It correctly bundles the application in production mode and optimizes the build for the best performance.
 
-### `pnpm serve`
+### `yarn serve`
 
 Serves the built app from the `dist` folder at [http://localhost:4173](http://localhost:4173).
 
-### `pnpm lint`
+### `yarn lint`
 
 Runs the linter on the `src` directory and automatically fixes any linting issues found.
 
-### `pnpm test`
+### `yarn test`
 
 Runs the tests using Vitest with the `--watch=false` option by default.
 

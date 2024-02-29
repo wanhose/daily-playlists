@@ -6,7 +6,6 @@
     "build": "tsc && vite build",
     "dev": "vite",
     "lint": "tsc && eslint ./src/**/*.{ts,tsx} --fix",
-    "preinstall": "npx only-allow pnpm",
     "prepare": "husky",
     "serve": "vite preview",
     "test": "vitest --watch=false"
@@ -57,5 +56,6 @@
     "vite": "^5.1.4",
     "vite-tsconfig-paths": "^4.3.1",
     "vitest": "^1.3.1"
-  }
+  },
+  "packageManager": "yarn@4.1.0"
 }
