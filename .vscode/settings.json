@@ -1,6 +1,7 @@
 {
   "files.associations": {
     ".commitlintrc": "json",
+    "*.css": "tailwindcss",
     ".lintstagedrc": "json"
   }
 }
