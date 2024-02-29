@@ -1,7 +1,10 @@
 {
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always"
+  },
   "files.associations": {
     ".commitlintrc": "json",
-    "*.css": "tailwindcss",
-    ".lintstagedrc": "json"
+    ".lintstagedrc": "json",
+    "*.css": "tailwindcss"
   }
 }
